@@ -1,55 +1,66 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Wanderly — Trips Worth Remembering</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#fdfcfa;color:#1e293b;font-family:'Outfit',sans-serif}
-header{max-width:1080px;margin:0 auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Caveat',cursive;font-size:34px;color:#0ea5e9}
-.btn{background:#f97316;color:#fff;border:0;padding:12px 22px;border-radius:999px;font-weight:700;cursor:pointer}
-.hero{background:linear-gradient(120deg,#0ea5e9,#0369a1);color:#fff;text-align:center;padding:52px 22px 36px}
-.hero h1{font-size:50px;margin:0 0 10px}.hero p{opacity:.9;font-size:18px}
-.search{max-width:640px;margin:22px auto 0;display:flex;background:#fff;border-radius:999px;padding:6px}
-.search input{flex:1;border:0;padding:12px 18px;font-size:15px;border-radius:999px;outline:none}
-.search button{background:#f97316;color:#fff;border:0;padding:12px 24px;border-radius:999px;font-weight:700;cursor:pointer}
-.grid{max-width:1080px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.dest{border-radius:20px;overflow:hidden;color:#fff;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;cursor:pointer;border:3px solid transparent}
-.dest.sel{border-color:#f97316}
-.dest b{font-size:24px}.dest span{opacity:.9}
-.builder{max-width:720px;margin:0 auto;padding:26px;background:#fff;border:1px solid #e8e4dc;border-radius:20px}
-.builder input,.builder select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;font-size:15px}
-.est{font-size:22px;margin-top:10px}.est b{color:#f97316}
+<title>Go somewhere you will never forget — Wanderly</title>
+<meta name="description" content="Wanderly — small-group trips with local guides and all-in pricing. Browse destinations and build your trip."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://syedsenterprises.github.io/wanderly/"/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="Wanderly"/>
+<meta property="og:title" content="Go somewhere you will never forget — Wanderly"/><meta property="og:description" content="Wanderly — small-group trips with local guides and all-in pricing. Browse destinations and build your trip."/><meta property="og:url" content="https://syedsenterprises.github.io/wanderly/"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Go somewhere you will never forget — Wanderly"/><meta name="twitter:description" content="Wanderly — small-group trips with local guides and all-in pricing. Browse destinations and build your trip."/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://syedsenterprises.github.io/wanderly/#org", "name": "Wanderly", "url": "https://syedsenterprises.github.io/wanderly/"}, {"@type": "WebSite", "@id": "https://syedsenterprises.github.io/wanderly/#site", "url": "https://syedsenterprises.github.io/wanderly/", "name": "Wanderly", "publisher": {"@id": "https://syedsenterprises.github.io/wanderly/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://syedsenterprises.github.io/wanderly/"}, {"@type": "ListItem", "position": 2, "name": "Go somewhere you will never forget", "item": "https://syedsenterprises.github.io/wanderly/"}]}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fraunces:wght@700&display=swap" rel="stylesheet"/>
+<style>*{box-sizing:border-box}body{margin:0;background:#eef6fb;color:#12212e;font-family:'Inter',sans-serif}
+a{color:#0284c7}header{max-width:1100px;margin:0 auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-family:'Fraunces',serif;font-size:26px;color:#0284c7;text-decoration:none}.logo span{color:#f59e0b}
+nav a{margin:0 10px;text-decoration:none;color:#12212e;font-weight:500}nav a.on{color:#f59e0b;border-bottom:2px solid #f59e0b}
+.wrap{max-width:1100px;margin:0 auto;padding:10px 22px 30px}
+h1{font-family:'Fraunces',serif;font-size:42px;line-height:1.1}h2{font-family:'Fraunces',serif;font-size:30px}h3{font-size:19px}
+.btn{background:#0284c7;color:#fff;border:0;padding:12px 22px;border-radius:999px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn2{background:#f59e0b;color:#fff;border:0;padding:11px 20px;border-radius:999px;font-weight:700;cursor:pointer}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:#ffffff;border:1px solid #cfe3f0;border-radius:16px;padding:20px}
+.card p{color:#4a6577}input,select,textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #cfe3f0;border-radius:10px;font-size:15px;font-family:inherit}
 .ok{background:#e6f4ea;color:#1e5c2e;padding:12px;border-radius:10px;margin-top:12px;display:none}
-.exp{max-width:1080px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
-.exp div{background:#fff;border:1px solid #e8e4dc;border-radius:16px;padding:22px}
-.exp p{color:#64748b;font-size:14px}
-footer{text-align:center;color:#64748b;padding:22px;font-size:13px}
-@media(max-width:700px){.grid,.exp{grid-template-columns:1fr}.hero h1{font-size:36px}}
-</style></head><body>
-<header><div class="logo">Wanderly</div><button class="btn" onclick="document.querySelector('.builder').scrollIntoView()">Plan my trip</button></header>
-<section class="hero"><h1>Go somewhere you'll never forget.</h1><p>Small-group trips, local guides, and prices that include everything. Pick a destination below, then price your trip.</p>
-<div class="search"><input id="sq" placeholder="Where to? Try 'beach', 'mountain', 'city'…" oninput="search()"/><button onclick="search()">Search</button></div></section>
-<section class="grid" id="grid"></section>
-<section class="builder"><h2 style="margin:0 0 8px">Price &amp; book your trip</h2>
-<select id="dest" onchange="est()"></select>
-<label>Days</label><input id="days" type="number" value="5" min="2" max="21" oninput="est()"/>
-<label>Travelers</label><input id="trav" type="number" value="2" min="1" max="12" oninput="est()"/>
-<div class="est">Estimated total: <b id="est"></b> <span style="color:#64748b;font-size:14px">(includes stays, guide &amp; entries)</span></div>
-<input id="tname" placeholder="Your name"/><input id="tmail" placeholder="Email"/>
-<button class="btn" style="width:100%;margin-top:10px" onclick="bookTrip()">Book this trip →</button><div class="ok" id="ok"></div></section>
-<section class="exp">
-<div><b>Small groups, max 12</b><p>No 50-person bus tours. You actually meet people.</p></div>
-<div><b>Local guides only</b><p>People who live there, not scripts read aloud.</p></div>
-<div><b>All-in pricing</b><p>Flights, stays, entries — the price you see is the price.</p></div>
-</section>
-<footer>Wanderly demo theme · Static site — bookings saved in your browser. Connect a booking system to take real reservations.</footer>
+footer{max-width:1100px;margin:20px auto;padding:20px 22px;border-top:1px solid #cfe3f0;color:#4a6577;font-size:13px;text-align:center}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+.tag{color:#4a6577;font-size:17px}
+.chatbtn{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#f59e0b;color:#fff;border:0;font-size:26px;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.3);z-index:60}
+.chatpanel{position:fixed;right:20px;bottom:92px;width:360px;max-width:92vw;height:480px;max-height:70vh;background:#fff;color:#222;border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.3);display:none;flex-direction:column;overflow:hidden;z-index:60}
+.chatpanel.open{display:flex}
+.chathead{background:#0284c7;color:#fff;padding:14px 16px}.chathead b{font-size:16px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#4ade80;margin-right:6px}
+.chatmsgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.45}
+.msg.bot{background:#f1f5f9;align-self:flex-start}.msg.user{background:#0284c7;color:#fff;align-self:flex-end}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 10px}.chips button{background:#f1f5f9;border:1px solid #e2e8f0;padding:6px 11px;border-radius:999px;cursor:pointer;font-size:12px}
+.chatin{display:flex;gap:8px;padding:10px;border-top:1px solid #eee}.chatin input{margin:0}.chatin button{background:#f59e0b;color:#fff;border:0;padding:11px 16px;border-radius:10px;font-weight:700;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,90px);background:#1f2937;color:#fff;padding:15px 20px;border-radius:999px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:.3s;z-index:70;opacity:0;pointer-events:none;max-width:92vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.toast button{background:#f59e0b;color:#fff;border:0;padding:7px 14px;border-radius:999px;margin-left:12px;cursor:pointer;font-weight:700}
+.pulse{animation:pulse .5s}@keyframes pulse{50%{transform:scale(1.12)}}
+.drawer{position:fixed;top:0;right:0;width:360px;max-width:92vw;height:100%;background:#fff;color:#222;box-shadow:-8px 0 30px rgba(0,0,0,.2);padding:22px;overflow:auto;transform:translateX(110%);transition:.25s;z-index:65}
+.drawer.open{transform:none}
+.line{display:flex;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #eee;align-items:center}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid #ccc;background:#fff;cursor:pointer;font-weight:700}
+@media(max-width:700px){.grid3,.grid2,.hero{grid-template-columns:1fr}h1{font-size:32px}}</style></head><body>
+<header><a class="logo" href="index.html">✈️ Wander<span>ly</span></a><nav><a href="index.html" class="on">Home</a><a href="destinations.html" class="">Destinations</a><a href="experiences.html" class="">Experiences</a><a href="contact.html" class="">Contact</a></nav></header>
+<main class="wrap"><section class="hero"><div><p style="color:#0284c7;font-weight:700">SMALL GROUPS · MAX 12 · LOCAL GUIDES</p><h1>Go somewhere you will never forget.</h1><p class="tag">Small-group trips, local guides, and prices that include everything. Pick a destination below, then price your trip.</p><p><a class="btn" href="destinations.html">Browse destinations →</a> <a class="btn2" href="experiences.html">Build my trip</a></p></div><div class="card"><h3>Featured: Bali, Indonesia</h3><p>Beach · 7 days · from $899</p><p>Temples, rice terraces and surf at dawn — with a guide who actually lives there.</p></div></section>
+<h2>Why Wanderly?</h2><div class="grid3"><div class="card"><h3>Small groups, max 12</h3><p>No 50-person bus tours. You actually meet people.</p></div><div class="card"><h3>Local guides only</h3><p>People who live there, not scripts read aloud.</p></div><div class="card"><h3>All-in pricing</h3><p>Stays, guide, entries — the price you see is the price.</p></div></div>
+<h2>Travellers say</h2><div class="grid2"><div class="card"><p>"Twelve strangers became friends by day three."</p><p>— Demo traveller, Bali</p></div><div class="card"><p>"Our guide knew the trails nobody else used."</p><p>— Demo traveller, Banff</p></div></div></main>
+<footer>Wanderly · Trips worth remembering. Demo site — sample destinations, trip builder and bookings.<br/><a href="index.html">Home</a> · <a href="destinations.html">Destinations</a> · <a href="experiences.html">Experiences</a> · <a href="contact.html">Contact</a></footer>
+<button class="chatbtn" onclick="toggleChat()">💬</button><div class="chatpanel" id="chatpanel"><div class="chathead"><span class="dot"></span><b>Wanda</b><span style="opacity:.8"> · Online · Demo assistant, replies instantly</span><button style="float:right;background:none;border:0;color:#fff;font-size:18px;cursor:pointer" onclick="toggleChat()">×</button></div><div class="chatmsgs" id="chatmsgs"></div><div class="chips"><button onclick="chip(&quot;Cheapest trip?&quot;)">Cheapest trip?</button><button onclick="chip(&quot;Beach or mountains?&quot;)">Beach or mountains?</button><button onclick="chip(&quot;What is included?&quot;)">What is included?</button></div><div class="chatin"><input id="chatinput" placeholder="Ask anything…" onkeydown="if(event.key==='Enter')sendChat()"/><button onclick="sendChat()">Send</button></div></div>
+<script>const BOT={"name": "Wanda", "greeting": "Hi, I am Wanda, the Wanderly demo assistant. Ask about destinations, trips or prices.", "chips": ["Cheapest trip?", "Beach or mountains?", "What is included?"], "rules": [{"k": ["beach"], "a": "Beach picks: Bali from $899 for 7 days, and Santorini. See the Destinations page."}, {"k": ["mountain", "alps"], "a": "Mountain picks: Swiss Alps and Banff, Canada. Guided hikes included."}, {"k": ["include", "price"], "a": "Prices include stays, guides and entries. Flights are included in the all-in estimate on the Experiences page."}, {"k": ["cheap", "budget"], "a": "Cheapest demo trip: Bali, 7 days from $899. Use the trip builder to price your own dates."}], "fallback": "I am a demo assistant. I can help with prices, hours, bookings and services. For a real person, use the contact page."};
+function botReply(q){q=q.toLowerCase();for(let r of BOT.rules){if(r.k.some(k=>q.includes(k)))return r.a}return BOT.fallback}
+let greeted=false;
+function toggleChat(){let p=document.getElementById('chatpanel');p.classList.toggle('open');if(p.classList.contains('open')&&!greeted){greeted=true;addMsg('bot',BOT.greeting)}}
+function addMsg(who,text){let m=document.createElement('div');m.className='msg '+who;m.textContent=text;document.getElementById('chatmsgs').appendChild(m);document.getElementById('chatmsgs').scrollTop=99999}
+function sendChat(text){let inp=document.getElementById('chatinput');let q=(text||inp.value).trim();if(!q)return;addMsg('user',q);inp.value='';let t=document.createElement('div');t.className='msg bot';t.id='typing';t.textContent='Typing…';document.getElementById('chatmsgs').appendChild(t);setTimeout(()=>{t.remove();addMsg('bot',botReply(q))},700)}
+function chip(q){document.getElementById('chatinput').value=q;sendChat()}</script>
 <script>
-const D=[{n:'Bali, Indonesia',k:'beach island',pd:899,days:7,g:'linear-gradient(120deg,#38bdf8,#0ea5e9)',t:'Beach'},{n:'Swiss Alps',k:'mountain adventure',pd:1299,days:5,g:'linear-gradient(120deg,#4d7c0f,#365314)',t:'Mountain'},{n:'Kyoto, Japan',k:'city culture',pd:1099,days:6,g:'linear-gradient(120deg,#f97316,#ea580c)',t:'City'},{n:'Santorini, Greece',k:'beach island',pd:999,days:5,g:'linear-gradient(120deg,#14b8a6,#0f766e)',t:'Beach'},{n:'Banff, Canada',k:'mountain adventure',pd:849,days:4,g:'linear-gradient(120deg,#7c3aed,#4c1d95)',t:'Mountain'},{n:'Paris, France',k:'city culture',pd:949,days:4,g:'linear-gradient(120deg,#e11d48,#9f1239)',t:'City'}];
-let sel=D[0].n;
-function render(){let q=document.getElementById('sq').value.toLowerCase();document.getElementById('grid').innerHTML=D.filter(d=>d.k.includes(q)||d.n.toLowerCase().includes(q)).map(d=>`<div class="dest ${d.n===sel?'sel':''}" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),${d.g}" onclick="sel='${d.n}';sync();render()"><b>${d.n}</b><span>${d.t} · ${d.days} days · from $${d.pd}</span></div>`).join('')||'<p>No matches. Try beach, mountain or city.</p>'}
-function sync(){document.getElementById('dest').innerHTML=D.map(d=>`<option ${d.n===sel?'selected':''}>${d.n}</option>`).join('');est()}
-function search(){render()}
-function est(){let d=D.find(x=>x.n===document.getElementById('dest').value)||D[0];let days=parseInt(document.getElementById('days').value)||5,trav=parseInt(document.getElementById('trav').value)||2;let per=Math.round(d.pd/d.days);document.getElementById('est').textContent='$'+(per*days*trav).toLocaleString()}
-function bookTrip(){let nm=document.getElementById('tname').value.trim();if(!nm){alert('Enter your name first.');return}let ref='W-'+Math.floor(1000+Math.random()*9000);let d=document.getElementById('dest').value;let ok=document.getElementById('ok');ok.style.display='block';ok.innerHTML=`Trip booked! Reference <b>${ref}</b> — ${d} for ${document.getElementById('trav').value} traveler(s), ${document.getElementById('days').value} days, total ${document.getElementById('est').textContent}. Confirmation for ${nm} is saved in this browser. (Demo: no real reservation made.)`}
-document.getElementById('dest').addEventListener('change',()=>{sel=document.getElementById('dest').value;render();est()});
-sync();render();
-</script></body></html>
+let DESTS=[{n:'Bali, Indonesia',tag:'beach',days:7,per:128,desc:'Temples, rice terraces and surf at dawn.'},{n:'Swiss Alps',tag:'mountain',days:6,per:210,desc:'Trains, peaks and lakes that look edited.'},{n:'Kyoto, Japan',tag:'city',days:8,per:165,desc:'Temples, gardens and food worth the flight.'},{n:'Santorini, Greece',tag:'beach',days:5,per:190,desc:'White villages over a blue caldera.'},{n:'Banff, Canada',tag:'mountain',days:6,per:175,desc:'Lakes, hikes and very large mountains.'},{n:'Paris, France',tag:'city',days:4,per:185,desc:'Museums, markets and long lunches.'},{n:'Marrakech, Morocco',tag:'city',days:5,per:120,desc:'Medinas, gardens and desert light.'},{n:'Queenstown, New Zealand',tag:'mountain',days:7,per:195,desc:'Adventure capital, calm lakes included.'}];
+function renderDest(){let g=document.getElementById('destgrid');if(!g)return;let q=(document.getElementById('destq')?document.getElementById('destq').value.toLowerCase():'');let list=DESTS.filter(d=>(d.n.toLowerCase().includes(q)||d.tag.includes(q)));g.innerHTML=list.length?list.map(d=>'<div class="card"><h3>'+d.n+'</h3><p>'+d.tag.toUpperCase()+' · '+d.days+' days · from $'+(d.days*d.per)+'</p><p>'+d.desc+'</p><button class="btn2" onclick="selectDest(\''+d.n+'\')">Price this trip →</button></div>').join(''):'<p>No matches. Try beach, mountain or city.</p>'}
+function selectDest(n){let s=document.getElementById('tripdest');if(s)s.value=n;est();let f=document.getElementById('tripform');if(f)f.scrollIntoView()}
+function est(){let s=document.getElementById('tripdest');let d=parseInt(document.getElementById('tripdays').value)||7;let t=parseInt(document.getElementById('triptrav').value)||2;let dest=DESTS.find(x=>x.n===s.value)||DESTS[0];let total=d*t*dest.per;let el=document.getElementById('estout');if(el)el.textContent='Estimated total: $'+total.toLocaleString()+' for '+t+' traveler(s), '+d+' days in '+dest.n+' (includes stays, guide & entries).'}
+function bookTrip(ev){ev.preventDefault();let ref='W-'+Math.floor(1000+Math.random()*9000);document.getElementById('tok').innerHTML='Trip requested! Reference <b>'+ref+'</b>. Demo only — nothing is booked or charged.';document.getElementById('tok').style.display='block'}
+renderDest();est();
+</script>
+
+</body></html>

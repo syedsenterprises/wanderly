@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://syedsenterprises.github.io/wanderly/sitemap.xml
