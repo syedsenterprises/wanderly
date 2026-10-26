@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Wanderly — Trips Worth Remembering</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fdfcfa;color:#1e293b;font-family:'Outfit',sans-serif}
+header{max-width:1080px;margin:0 auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Caveat',cursive;font-size:34px;color:#0ea5e9}
+.btn{background:#f97316;color:#fff;border:0;padding:12px 22px;border-radius:999px;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(120deg,#0ea5e9,#0369a1);color:#fff;text-align:center;padding:52px 22px 36px}
+.hero h1{font-size:50px;margin:0 0 10px}.hero p{opacity:.9;font-size:18px}
+.search{max-width:640px;margin:22px auto 0;display:flex;background:#fff;border-radius:999px;padding:6px}
+.search input{flex:1;border:0;padding:12px 18px;font-size:15px;border-radius:999px;outline:none}
+.search button{background:#f97316;color:#fff;border:0;padding:12px 24px;border-radius:999px;font-weight:700;cursor:pointer}
+.grid{max-width:1080px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dest{border-radius:20px;overflow:hidden;color:#fff;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;cursor:pointer;border:3px solid transparent}
+.dest.sel{border-color:#f97316}
+.dest b{font-size:24px}.dest span{opacity:.9}
+.builder{max-width:720px;margin:0 auto;padding:26px;background:#fff;border:1px solid #e8e4dc;border-radius:20px}
+.builder input,.builder select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;font-size:15px}
+.est{font-size:22px;margin-top:10px}.est b{color:#f97316}
+.ok{background:#e6f4ea;color:#1e5c2e;padding:12px;border-radius:10px;margin-top:12px;display:none}
+.exp{max-width:1080px;margin:26px auto;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.exp div{background:#fff;border:1px solid #e8e4dc;border-radius:16px;padding:22px}
+.exp p{color:#64748b;font-size:14px}
+footer{text-align:center;color:#64748b;padding:22px;font-size:13px}
+@media(max-width:700px){.grid,.exp{grid-template-columns:1fr}.hero h1{font-size:36px}}
+</style></head><body>
+<header><div class="logo">Wanderly</div><button class="btn" onclick="document.querySelector('.builder').scrollIntoView()">Plan my trip</button></header>
+<section class="hero"><h1>Go somewhere you'll never forget.</h1><p>Small-group trips, local guides, and prices that include everything. Pick a destination below, then price your trip.</p>
+<div class="search"><input id="sq" placeholder="Where to? Try 'beach', 'mountain', 'city'…" oninput="search()"/><button onclick="search()">Search</button></div></section>
+<section class="grid" id="grid"></section>
+<section class="builder"><h2 style="margin:0 0 8px">Price &amp; book your trip</h2>
+<select id="dest" onchange="est()"></select>
+<label>Days</label><input id="days" type="number" value="5" min="2" max="21" oninput="est()"/>
+<label>Travelers</label><input id="trav" type="number" value="2" min="1" max="12" oninput="est()"/>
+<div class="est">Estimated total: <b id="est"></b> <span style="color:#64748b;font-size:14px">(includes stays, guide &amp; entries)</span></div>
+<input id="tname" placeholder="Your name"/><input id="tmail" placeholder="Email"/>
+<button class="btn" style="width:100%;margin-top:10px" onclick="bookTrip()">Book this trip →</button><div class="ok" id="ok"></div></section>
+<section class="exp">
+<div><b>Small groups, max 12</b><p>No 50-person bus tours. You actually meet people.</p></div>
+<div><b>Local guides only</b><p>People who live there, not scripts read aloud.</p></div>
+<div><b>All-in pricing</b><p>Flights, stays, entries — the price you see is the price.</p></div>
+</section>
+<footer>Wanderly demo theme · Static site — bookings saved in your browser. Connect a booking system to take real reservations.</footer>
+<script>
+const D=[{n:'Bali, Indonesia',k:'beach island',pd:899,days:7,g:'linear-gradient(120deg,#38bdf8,#0ea5e9)',t:'Beach'},{n:'Swiss Alps',k:'mountain adventure',pd:1299,days:5,g:'linear-gradient(120deg,#4d7c0f,#365314)',t:'Mountain'},{n:'Kyoto, Japan',k:'city culture',pd:1099,days:6,g:'linear-gradient(120deg,#f97316,#ea580c)',t:'City'},{n:'Santorini, Greece',k:'beach island',pd:999,days:5,g:'linear-gradient(120deg,#14b8a6,#0f766e)',t:'Beach'},{n:'Banff, Canada',k:'mountain adventure',pd:849,days:4,g:'linear-gradient(120deg,#7c3aed,#4c1d95)',t:'Mountain'},{n:'Paris, France',k:'city culture',pd:949,days:4,g:'linear-gradient(120deg,#e11d48,#9f1239)',t:'City'}];
+let sel=D[0].n;
+function render(){let q=document.getElementById('sq').value.toLowerCase();document.getElementById('grid').innerHTML=D.filter(d=>d.k.includes(q)||d.n.toLowerCase().includes(q)).map(d=>`<div class="dest ${d.n===sel?'sel':''}" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),${d.g}" onclick="sel='${d.n}';sync();render()"><b>${d.n}</b><span>${d.t} · ${d.days} days · from $${d.pd}</span></div>`).join('')||'<p>No matches. Try beach, mountain or city.</p>'}
+function sync(){document.getElementById('dest').innerHTML=D.map(d=>`<option ${d.n===sel?'selected':''}>${d.n}</option>`).join('');est()}
+function search(){render()}
+function est(){let d=D.find(x=>x.n===document.getElementById('dest').value)||D[0];let days=parseInt(document.getElementById('days').value)||5,trav=parseInt(document.getElementById('trav').value)||2;let per=Math.round(d.pd/d.days);document.getElementById('est').textContent='$'+(per*days*trav).toLocaleString()}
+function bookTrip(){let nm=document.getElementById('tname').value.trim();if(!nm){alert('Enter your name first.');return}let ref='W-'+Math.floor(1000+Math.random()*9000);let d=document.getElementById('dest').value;let ok=document.getElementById('ok');ok.style.display='block';ok.innerHTML=`Trip booked! Reference <b>${ref}</b> — ${d} for ${document.getElementById('trav').value} traveler(s), ${document.getElementById('days').value} days, total ${document.getElementById('est').textContent}. Confirmation for ${nm} is saved in this browser. (Demo: no real reservation made.)`}
+document.getElementById('dest').addEventListener('change',()=>{sel=document.getElementById('dest').value;render();est()});
+sync();render();
+</script></body></html>
